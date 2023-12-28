@@ -32,12 +32,13 @@ jobs:
         if [ “${{ github.event_name }}” == “pull_request” ] && [ “${{ github.event.action }}” == “opened” ]; then
           gh pr merge “${{ github.event.number }}” --squash --auto
         fi
-    - name: Install Vercel
-      run: npm i -g vercel
-          
-    - name: Set up and deploy
-      run: |
-          echo "y" | vercel --prod
-        
-    - name: Deploy to Vercel
-      run: npx vercel --token ${{ secrets.TEST }}
+
+    - name: Install Vercel CLI
+      run: npm install --global vercel@latest
+    - name: Pull Vercel Environment Information
+      run: vercel pull --yes --environment=preview --token=${{ secrets.TEST }}
+    - name: Build Project Artifacts
+      run: vercel build --prev --token=${{ secrets.TEST }}
+    - name: Deploy Project Artifacts to Vercel
+      run: vercel deploy --prebuilt --prev --token=${{ secrets.TEST }}
+
