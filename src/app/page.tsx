@@ -22,12 +22,13 @@ export default function Home() {
     try {
       const { data, error } = await supabase
         .from("Countries")
-        .insert([{ id: 123456789, name: "TURKEY" }]);
+        .insert([{ id: 56, name: "NORWAY" }]);
       if (error) {
         console.error("Error creating country:", error);
       } else {
         console.log("Country created successfully:", data);
       }
+      
     } catch (error) {
       console.error("Error:", error);
     }
