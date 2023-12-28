@@ -7,6 +7,7 @@ jobs:
   build-merge-deploy:
     runs-on: ubuntu-latest
 
+
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
     
@@ -32,5 +33,10 @@ jobs:
         if [ “${{ github.event_name }}” == “pull_request” ] && [ “${{ github.event.action }}” == “opened” ]; then
           gh pr merge “${{ github.event.number }}” --squash --auto
         fi
+
+      - name: Set up and deploy
+      run: |
+        yes | vercel --prod
+        
     - name: Deploy to Vercel
       run: npx vercel --token ${{ secrets.TEST }}
