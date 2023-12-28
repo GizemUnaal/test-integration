@@ -11,5 +11,7 @@ describe("Get Countries", () => {
     cy.get("ul").find("li").contains("Samsun").should("not.exist");
 
     cy.get("ul").find("li").contains("Ağrı").should("not.exist");
+
+    cy.get("ul").find("li").contains("Hakkari").should("not.exist");
   });
 });
