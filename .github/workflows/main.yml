@@ -29,8 +29,8 @@ jobs:
           start: npm start
     - name: Merge PR if checks pass
       run: |
-        if [ “${{ github.event_name }}” == “pull_request” ] && [ “${{ github.event.action }}” == “opened” ]; then
-          gh pr merge “${{ github.event.number }}” --squash --auto
+        if [ "${{ github.event_name }}" == "pull_request" ] && [ "${{ github.event.action }}" == "opened" ]; then
+          gh pr merge "${{ github.event.number }}" --squash --auto
         fi
         
     - name: Set up and deploy
