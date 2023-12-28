@@ -40,5 +40,5 @@ jobs:
     - name: Build Project Artifacts
       run: vercel build --token=${{ secrets.TEST }}
     - name: Deploy Project Artifacts to Vercel
-      run: vercel deploy --prebuilt --token=${{ secrets.TEST }}
+      run: vercel deploy --token=${{ secrets.TEST }}
 

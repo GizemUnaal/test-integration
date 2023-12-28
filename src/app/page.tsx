@@ -27,7 +27,7 @@ export default function Home() {
         ))}
       </ul>
       <button
-        className="bg-red-400 w-[250px] p-3"
+        className="bg-blue-400 w-[250px] p-3"
         onClick={checkSupabaseConnection}
         data-cy="getCountries"
       >
