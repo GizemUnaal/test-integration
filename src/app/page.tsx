@@ -22,7 +22,7 @@ export default function Home() {
     try {
       const { data, error } = await supabase
         .from("Countries")
-        .insert([{ id: 56, name: "NORWAY" }]);
+        .insert([{ id: 78, name: "RUSSIA" }]);
       if (error) {
         console.error("Error creating country:", error);
       } else {
