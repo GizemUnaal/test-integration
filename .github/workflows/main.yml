@@ -35,9 +35,3 @@ jobs:
         
     - name: Deploy to Vercel
       run: npx vercel --token ${{ secrets.TEST }}
-
-
-    - name: Set up and deploy
-      run: |
-          echo "y" | vercel --prod
-        
