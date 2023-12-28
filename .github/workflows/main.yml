@@ -24,7 +24,7 @@ jobs:
         with:
           browser: chrome
           build: npm run build
-          start: npm start
+          start: npm start 
       - name: Merge PR if checks pass
         run: |
           if [ “${{ github.event_name }}” == “pull_request” ] && [ “${{ github.event.action }}” == “opened” ]; then
