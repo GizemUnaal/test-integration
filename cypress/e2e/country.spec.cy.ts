@@ -10,6 +10,6 @@ describe("Get Countries", () => {
 
     cy.get("ul").find("li").contains("Samsun").should("not.exist");
     
-    cy.get("ul").find("li").contains("Zonguldak").should("not.exist");
+    cy.get("ul").find("li").contains("burdur").should("not.exist");
   });
 });
