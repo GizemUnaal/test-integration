@@ -29,15 +29,15 @@ jobs:
           start: npm start
     - name: Merge PR if checks pass
       run: |
-        if [ "${{ github.event_name }}" == "pull_request" ] && [ "${{ github.event.action }}" == "opened" ]; then
-          gh pr merge "${{ github.event.number }}" --squash --auto
+        if [ “${{ github.event_name }}” == “pull_request” ] && [ “${{ github.event.action }}” == “opened” ]; then
+          gh pr merge “${{ github.event.number }}” --squash --auto
         fi
-        
-    - name: Deploy to Vercel
-      run: npx vercel --token ${{ secrets.TEST }}
-
-
+    - name: Install Vercel
+      run: npm i -g vercel
+          
     - name: Set up and deploy
       run: |
           echo "y" | vercel --prod
         
+    - name: Deploy to Vercel
+      run: npx vercel --token ${{ secrets.TEST }}
