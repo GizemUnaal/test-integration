@@ -18,22 +18,6 @@ export default function Home() {
     }
   }
 
-  async function createCountry() {
-    try {
-      const { data, error } = await supabase
-        .from("Countries")
-        .insert([{ id: 78, name: "RUSSIA" }]);
-      if (error) {
-        console.error("Error creating country:", error);
-      } else {
-        console.log("Country created successfully:", data);
-      }
-      
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
-
   return (
     <div className="flex flex-col gap-5 p-10">
       <h1 className="font-bold">Next.js + Cypress + Vercel + Supabase</h1>
@@ -51,14 +35,6 @@ export default function Home() {
         data-cy="getCountries"
       >
         Check Supabase Connection
-      </button>
-
-      <button
-        className="bg-green-400 w-[250px] p-3"
-        onClick={createCountry}
-        data-cy="createCountry"
-      >
-        Create Country
       </button>
     </div>
   );

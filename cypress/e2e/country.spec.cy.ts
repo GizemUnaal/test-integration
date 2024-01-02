@@ -14,16 +14,4 @@ describe("Get Countries", () => {
 
     cy.get("ul").find("li").contains("Antalya").should("not.exist");
   });
-
-  it("should add new country", () => {
-    cy.visit("http://localhost:3000/");
-
-    cy.get('[data-cy="createCountry"]').click();
-
-    cy.wait(2000);
-
-    cy.get('[data-cy="getCountries"]').click();
-    cy.get("ul").find("li").contains("RUSSIA").should("exist");
-      
-  });
 });
